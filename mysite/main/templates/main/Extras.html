@@ -1,0 +1,27 @@
+{% extends "main/footer.html" %}
+<head>
+</head>	
+
+<body>
+{% block content %}
+<div class="container">
+	
+	<h2 style="color: black; text-align: center; font-family: Impact;" name="Definitions"> Definitions of all the terms </h2>
+
+	{% for def in definitions %}
+
+
+			<TABLE style="border: 0; padding: 20px; border-spacing: 0px; position: relative;">
+				<tr>
+					<td style = "height: 100px; width: 30%;"><i><p style="margin: auto; color: #FD6E6E; font-family: Andale Mono;">{{ def.name | safe}} :</p></i></td>
+					
+					<td style = "height: 100px; width: 80%;"><p style="margin: auto; color: #696969; font-family: Andale Mono;">{{ def.definition | safe }}</p></td>
+				</tr>		
+			</TABLE>	
+
+	
+	{% endfor %}	
+</div>
+{% endblock %}
+</body>
+

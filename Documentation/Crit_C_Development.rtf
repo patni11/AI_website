@@ -1,0 +1,426 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2509
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\froman\fcharset0 Times-Roman;\f2\fswiss\fcharset0 Helvetica;
+\f3\froman\fcharset0 Times-Italic;\f4\fswiss\fcharset0 Helvetica-Oblique;}
+{\colortbl;\red255\green255\blue255;\red79\green129\blue189;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c37707\c58331\c78849;\cssrgb\c0\c0\c0;}
+\paperw11906\paperh16838\margl1440\margr1440
+\deftab720
+\pard\pardeftab720\sl276\slmult1\sa200\qc\partightenfactor0
+
+\f0\b\fs26 \cf2 \expnd0\expndtw0\kerning0
+\up0 \nosupersub \ulnone \
+Criterion C: Development\
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+
+\f1\b0\fs24 \cf3 Coding Wizards website allows users to learn about various techniques related to Artificial Intelligence. The website starts with displaying the homepage consisting various AI techniques and nav-bar with login, register, feedback and extras options. I have used Django and materialize.css to design the website. Django provides me with model-view-controller architecture and makes it easier for me to build a scalable website as it automatically handles the database, also it provides a admin page to add/remove item from database. So first I would like to make this architecture clearer\
+\
+Models: \
+models.py file contains all the classes for the database, class Tutorial(models.Model)  and class Definitions(models.Model) both inherits from models.Model to use it\'92s methods. These classes have variables to represent different columns of the database for data of different data types. Variable\'92s name is used to access individual item stored in the column \
+\
+\
+\
+Controller:\
+urls.py file creates path for all the actions, it is a bridge between templates (where user interacts) and views.py. Template makes request from certain functionalities or links available in urls.py file which then calls for respective functions/actions in views.py file. \
+\
+Views: \
+views.py file performs functions asked by the template (users) such as login/logout, face recognition, object detection, displaying messages etc. It also provides template with the relevant html files and data from models.\
+\
+Home Page: \
+\pard\pardeftab720\sl276\slmult1\sa200\qc\partightenfactor0
+
+\f0\b\fs26 \cf2 \
+\
+\
+\
+\
+\
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+
+\f1\b0\fs24 \cf3 								\
+\
+\
+\
+Homepage has four options which users can choose from to navigate to whatever AI technique they might be interested in. The design adapts to various screen sizes using materialize.css.\
+\
+Nav-bar and Footer:\
+As the nav-bar and footer are available in all the pages, I have common code for it in nav-bar.html and footer.html files.\
+ \
+\
+\
+\pard\pardeftab720\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+\cf3 					\
+ \
+\
+\
+\pard\pardeftab720\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+\cf3 Navbar contains buttons for login, register, logout, feedback and extras. It also has code to check for login status to hide or display login/logout options \
+( \{% if {\field{\*\fldinst{HYPERLINK "http://user.is"}}{\fldrslt \ul user.is}}_authenticated %\} ) \
+\
+\
+\
+\
+\
+\pard\pardeftab720\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+\cf3 \
+\
+\
+\
+\
+\
+\pard\pardeftab20\sl276\slmult1\qc\partightenfactor0
+
+\f0\b\fs26 \cf2 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+
+\f2\b0\fs22 \cf3 		\
+\
+\
+\
+\
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\
+\
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+
+\f1\fs24 \cf3 \
+In footer.html file a line calls for navbar.html and messages.html to make the code more usable and modular 
+\f3\i (\{% include "main/includes/navbar.html" %\}) (\{% include "main/includes/messages.html" %\})
+\f1\i0 . .All the other HTML files include navbar.html and footer.html to use their features.\
+\
+Feedback: \
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 Figure(4): Google Forms\
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+\cf3  \
+\
+\pard\pardeftab720\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+\cf3 Feedback form by Google allows my client to know what can be improved in the website and keeps him in touch to his students and other users of the website.\
+ \
+Extras:\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3  \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+\cf3 Extras contains definitions of all the hard terminologies used in the website and allows the user to learn more about them. It has code
+\f3\i  (\{% for def in definitions %\})
+\f1\i0  to loop through all the definitions stored in Definitions model in the database and then it displays all of them with same structure and design inside the 
+\f3\i <Table>
+\f1\i0  tag.  \
+\pard\pardeftab720\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+\cf3 extras() function is called when a user clicks on any definition and this function passes the data from Definitions model to the extras.html to display them.	\
+\
+Login: \
+\pard\pardeftab720\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab720\sl276\slmult1\sa200\partightenfactor0
+\cf3 \
+\
+\pard\pardeftab720\sl276\slmult1\partightenfactor0
+\cf3  \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+
+\f2\fs22 \cf3 \
+\
+\
+\
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 \
+\
+\
+\
+\
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 login.html allows user to login to the website. 
+\f4\i <form> 
+\f2\i0 tag takes the input from the user and sends it to view.py file to login the user. 
+\f4\i \{% csrf_token %\} 
+\f2\i0 protects against all cross site request forgery attacks.  \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 login_req function checks the user login credentials and authenticates them if the info exists in database. Otherwise a message is shown to the user stating the issues in authentication.\
+Register:\
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3  \
+ \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 \
+The html file has code to create a temple to let user register, the form tag uses Django\'92s default form layout with materialize.css design to get the user\'92s username, email and password. \
+\
+ \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 This function takes the data from register.html and checks if the data is authentic using 
+\f4\i if form.is_valid()
+\f2\i0 , otherwise it displays an error message to informing the user about the error 
+\f4\i messages.error()\
+\
+
+\f2\i0 Anchors: \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+ \
+\
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 Anchors are internal links which allow users to easily navigate to various Headlines within the page. Href attribute of the <a> tag contains the name of the portion of page which user wishes to visit. \{
+\f4\i  <a href=\'93#definition\'94
+\f2\i0 \}\
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+
+\f4\i \cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+
+\f2\i0 \cf3 Transfer Learning: \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3  \
+\
+\
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 It is a technique which uses per-trained models to do the classification, the model already contains features which can be modified by further training on specific data sets, 
+\f4\i rec.train() 
+\f2\i0 function trains the model and 
+\f4\i rec.save()
+\f2\i0  saves it. It reduces training time, computation and creates better and more useful models.
+\f4\i \
+\
+\
+\
+
+\f2\i0 Object Detection: 
+\f4\i \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+
+\f2\i0 \cf3 Run button in the browser initiates the object detection by calling a function (index()) in views.py. Object detection uses lite version of YOLOv3 (You Only Look Once) algorithm and pre-trained weights provided by YOLO are used. Lite version of the main algorithm is used to make it faster and to be able to recognise objects in real time.  \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 After the object has been detected a rectangle is drawn around it with a text field on top stating which object it is. Then the image is passed in binary form and then displayed in the website.\
+Face Recognition: \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 It can detect faces of multiple people In a video frame and label them according to their names. I have used transfer learning for this technique to use a pre-trained face recognition model to save training time and get better predictions. \
+ 				\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 New user has to input their name and press configure to start the data collection process, in this process images of the user is taken through webcam and saved in a folder with name as name entered by the user. 
+\f4\i get_frame()
+\f2\i0  function first checks if the folder exists, otherwise the folder is created using
+\f4\i  os.mkdir(), 
+\f2\i0 now face is detected in each frame using 
+\f4\i faces = face.detectMultiScale
+\f2\i0  and if there is a face then image is saved inside the folder using 
+\f4\i cv2.imwrite(). 
+\f2\i0 After the data collection process user is shown a completed sign to indicate that the process has been completed. \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 To train the model with new weights 
+\f4\i updating_weights_for_face_recognition() 
+\f2\i0 function takes the images and and detects faces using face.detectMultiScale() method. Now this face is stored in x_train and its corresponding label in y_train to later train the model. New names is saved in labels file to store the names of all the people in the current image dataset pickle.dump(). Model is trained and weights are saved in a yml file rec.save(). Page is refreshed and a message is shown to the user that the model has been trained. \
+\
+\
+\
+\
+Music Generation: \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 This technique allows users to generate music from scratch just by a click of a button. I have used LSTM (Long Short Term Memory) networks to generate music as they keep track of weights at each time step to generate sequence data. \
+\
+\
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+
+\f4\i \cf3 \
+\
+\
+\
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+
+\f2\i0 \cf3 \
+\
+\
+\
+\
+\
+\
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 \
+When user clicks generate button gen_m() function is called. It uses pre-trained weights of LSTM network to generate notes given 100 previous notes. It normalises the input i.e notes and sends it to make_model() function, in this function we create the model using 
+\f4\i model=Sequential() 
+\f2\i0 and add different layers such as LSTM, Dense, Activation etc, using 
+\f4\i model.add(). 
+\f2\i0 Then pre-trained weights are loaded using 
+\f4\i model.load_weights() 
+\f2\i0 and the model is returned \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+
+\f4\i \cf3 gen_notes()
+\f2\i0  function takes the model and 100 input sample to generate new music 
+\f4\i model.predict()
+\f2\i0  and save it in an array. This array is then passed to make_midi() function which arranges the notes in a sequence and creates a midi file which is then saved 
+\f4\i midi_stream.write().\
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+
+\f2\i0 \cf3 \
+ \
+\
+\
+\
+\
+\
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 This function retrieves the music from the folder and loads is as 
+\f4\i HttpResponse()
+\f2\i0  and returns it to be downloaded in the download folder of the user.\
+\
+Generate Images: \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 Generate button in the page allows users to generate random images of 25 different things. This can be used by many artists to get inspiration and develop their own art.\
+\
+\
+\
+\
+\
+ \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 The code uses Generator and Discriminator classes to create GAN\'92s architecture. It then uses pre-trained weights to generate fake images. As the images are generated in range -1 to 1, they need to be converted to 0 to 255 which is done using 
+\f4\i vertical *= 255.0/vertical.max()\
+\
+View Images: \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+
+\f2\i0 \cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 This code allows users to view images generated using the generator in a new window
+\f4\i \
+\
+\
+\
+\
+\
+\
+\
+
+\f2\i0 Code Snippet:  \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 Code panel is available for all the techniques to let the user know what code is running behind the scenes. Code for all the techniques are stored in database and is received whenever user visits the page\
+ \
+Messages:\
+\
+ \
+\
+ \
+\
+\
+\
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\
+\
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 There are 3 types of alter messages, Red for any error, Green for success and Blue for info. \
+\pard\pardeftab20\sl276\slmult1\sa200\qc\partightenfactor0
+\cf3 \
+\pard\pardeftab20\sl276\slmult1\sa200\partightenfactor0
+\cf3 Above code is to create template for messages and shows different messages depending on \
+The type of message to be displayed.\
+\
+\
+\
+\
+\
+\
+}

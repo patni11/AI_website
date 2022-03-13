@@ -1,0 +1,117 @@
+{% extends "main/footer.html" %}
+{% with colour="#FF0000" %}
+
+<head>
+	{% load static %}
+	<link href="{% static 'main/css/materialize.css' %}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/aos.css'%}">
+</head>
+
+
+{% block content %}
+
+<body style="background-color: #242424; background: url('{% static 'images/bg2.jpg'%}') no-repeat center center fixed;
+background-size: cover;">
+	<div class="container" style="height: 100%;" data-aos="fade-down" data-aos-duration="2000" data-aos-once="false">
+		<H3 style=" text-shadow: 4px 0 0 #464646; color: white;padding-left: 40%; padding-top: 30%; font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;"
+			class="right">
+			Yo! Welcome to my home 🏠 on the internet </H3>
+		<!--<p style="color: white; font-size: large;"> </p>-->
+	</div>
+
+
+	<div class="container" style="border-radius: 10px; background-color: rgba(255, 255, 255, 1); color: #242424;"
+		data-aos="fade-down" data-aos-duration="2000" data-aos-once="false">
+		<h3
+			style="padding-top: 10%; font-family: Arial, Helvetica, sans-serif; padding-left: 20%; font-size: 30px; letter-spacing: 3px;">
+			WHO AM I?</h3>
+		<p style=" padding-left: 20%; font-size: 23px; letter-spacing: 1px; padding-right: 20%; padding-bottom: 10%;">
+			<br />
+			My name is Shubh 👨🏼‍💻, I'm 17 years old and live in India🇮🇳.
+			<br /><br />
+			I have a <i><a style="color: #FD6E6E"
+					href="https://www.youtube.com/channel/UCDXQNb3linY9EksWAvJhPyQ?view_as=subscriber">YouTube</a></i>
+			channel 📹
+			called Shubh Patni, where I show my projects in the form of funny 🤪 skits, create documentary style 🎞
+			videos on tech, and some productivity
+			tips 👨‍⚕.
+			<br /><br />
+			I also have a <i><a style="color: #FD6E6E" href="https://medium.com/@shubhpatni">Medium </a>
+			</i>blog where I
+			write ✍️
+			about anything interesting to me, plus give details on each of my projects.
+
+			<br><br />
+			Also, this 🕸site was made using Django, I can make one for you too! for money💰🤑 ofcourse. <i><a
+					style="color: #FD6E6E" href="https://www.upwork.com/freelancers/~01cd260fc5a3a6f63c"> Use This Link
+				</a></i>. If you want to know the funny story behind this site, here is the <i><a style="color: #FD6E6E"
+					href="https://youtu.be/W8kxFpJ-Ny4"> YouTube </a></i> video.
+		</p>
+
+	</div>
+
+	<div class="container" data-aos="fade-down" data-aos-duration="2000" data-aos-once="false"
+		style="padding-top: 48px; padding-bottom: 48px; padding-left: 60px; padding-right: 60px; background-color: #434343; border-radius: 10px; margin-top: 50px;">
+		<div class="row">
+
+
+			<div class="col s6">
+
+				<h3
+					style="padding-top: 10%; font-family: Arial, Helvetica, sans-serif; padding-left: 20%; font-size: 30px; letter-spacing: 3px; color: white;">
+					LATEST BLOG POST</h3>
+
+
+				<div id="medium-widget" data-aos="fade-right" data-aos-duration="2000" data-aos-once="false"
+					style="color: teal;">
+				</div>
+				<script src="{% static 'main/js/medium.js'%}"></script>
+				<script>MediumWidget.Init({ renderTo: '#medium-widget', params: { "resource": "https://medium.com/@shubhpatni", "postsPerLine": 1, "limit": 1, "picture": "big", "fields": ["description", "author", "claps"], "ratio": "landscape" } })</script>
+
+			</div>
+
+			<div class="col s6">
+
+				<h3
+					style="padding-top: 10%; font-family: Arial, Helvetica, sans-serif; padding-left: 20%; font-size: 30px; letter-spacing: 3px; color: white">
+					LATEST VIDEO</h3>
+
+				<div data-aos="fade-left" data-aos-duration="2000" data-aos-once="false" class=" video-container"
+					style="padding-top: 7%;">
+					<iframe class="latestVideoEmbed" vnum='0' cid="UCDXQNb3linY9EksWAvJhPyQ" frameborder="0"
+						allowfullscreen style="border: 5px solid #ffffff; padding: 5px;"></iframe>
+				</div>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+				<script>
+					var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
+
+					function loadVideo(iframe) {
+						$.getJSON(reqURL + iframe.getAttribute('cid'),
+							function (data) {
+								var videoNumber = (iframe.getAttribute('vnum') ? Number(iframe.getAttribute('vnum')) : 0);
+								console.log(videoNumber);
+								var link = data.items[videoNumber].link;
+								id = link.substr(link.indexOf("=") + 1);
+								iframe.setAttribute("src", "https://youtube.com/embed/" + id + "?controls=1&autoplay=0");
+							}
+						);
+					}
+
+					var iframes = document.getElementsByClassName('latestVideoEmbed');
+					for (var i = 0, len = iframes.length; i < len; i++) {
+						loadVideo(iframes[i]);
+					}
+
+				</script>
+			</div>
+
+
+		</div>
+
+	</div>
+
+	<br /><br /><br />
+	<br />
+	{% endblock %}
+	{% endwith %}

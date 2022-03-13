@@ -1,0 +1,25 @@
+{%extends "main/footer.html" %}
+
+{% block content %}
+<br/>
+<br/>
+<div class="container">
+    <form method="POST">
+   
+        {% csrf_token %} <!-- protects from cross site request forgery attacks-->
+        {{form.as_p}}
+    
+       <button class="btn waves-effect waves-light" type="submit" name="action"> Submit</button>
+       
+    </form>
+    
+    
+    <br/>
+    <br/>
+    <br/>
+    Already have an account??? NO problem hed over to our <a href="login"> <button class="btn waves-effect waves-light" type="submit" name="action"> Login page </button></a>
+</div>   
+<br/>
+<br/>
+{% endblock %}
+

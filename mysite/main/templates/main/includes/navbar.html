@@ -1,0 +1,62 @@
+{% load static%}
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/FP.css'%}">
+	<link rel="stylesheet" type="text/css" href="main/css/FP.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/aos.css'%}">
+
+	<!--	<script src="{% static 'main/js/nav_new.js'%}"></script>	-->
+</head>
+<nav>
+	<div class="nav-wrapper" style="background-color: #464646; z-index: 5;">
+		<a data-aos="fade-left" data-aos-duration="2000" href="First_page" class="logo"
+			style="color: #ffffff; padding-left: 10%;"> Shubh
+		</a>
+		<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+		<ul data-aos="fade-left" data-aos-duration="2000" class="nav-items right hide-on-med-and-down"
+			style="width: 60%; ">
+
+			<!-- <li><a href=" homepage"> AI </a></li> -->
+			<li><a href="blog"> 📝 Blog </a></li>
+			<li><a href="videos">
+					📹Videos </a></li>
+			<li><a target="blank" href="https://github.com/patni11?tab=repositories"> 💻 Projects </a></li>
+			<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeWhAG7ZTm52vlr18XwQ1kUNzpNOYZryMal9JG6ypslxoDCdg/viewform?usp=sf_link"
+					target="blank">😄 Feedback</a></li>
+			<!--
+			{% if user.is_authenticated %}
+			<li><a href="logout"> Logout </a></li>
+			<li><a href=""> {{user.username}} </a></li>
+			{% else %}
+			<li><a href="login"> Login </a></li>
+			<li><a href="register"> Register </a></li>
+			{% endif %}
+-->
+		</ul>
+		<script src="{% static 'main/js/aos.js'%}"> </script>
+		<script>
+			AOS.init();
+		</script>
+	</div>
+</nav>
+<!--
+<ul data-aos="fade-left" data-aos-duration="2000" class="sidenav" id="mobile-demo" style="width: 60%; ">
+	<li><a href="https://github.com/patni11?tab=repositories" target="blank"> Projects </a></li>
+	<li><a href=" homepage"> AI </a></li>
+	<li><a href="https://medium.com/@shubhpatni" target="blank"> Blog </a></li>
+	<li><a href="https://www.youtube.com/channel/UCDXQNb3linY9EksWAvJhPyQ?view_as=subscriber" target="blank">
+			YouTube </a></li>
+	<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeWhAG7ZTm52vlr18XwQ1kUNzpNOYZryMal9JG6ypslxoDCdg/viewform?usp=sf_link"
+			target="blank">Feedback</a></li>
+	{% if user.is_authenticated %}
+	<li><a href="logout"> Logout </a></li>
+	<li><a href=""> {{user.username}} </a></li>
+	{% else %}
+	<li><a href="login"> Login </a></li>
+	<li><a href="register"> Register </a></li>
+	{% endif %}
+</ul>
+-->
+
+<body>

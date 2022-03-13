@@ -1,0 +1,188 @@
+{% extends "main/footer.html" %}
+<html>
+
+<head>
+
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'maain/css/obj_detection.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'main/css/home.css'%}">
+
+  <style type="text/css">
+    /* unvisited link */
+  </style>
+</head>
+
+
+
+
+{% block content %}
+
+<body style="background-color: #696969;"></body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<div class="container" style="padding-top: 50px;">
+
+
+  <div data-aos="fade-down" data-aos-duration="2000" data-aos-once="false"
+    style="padding-top: 20px; padding-bottom: 20px; padding-left: 60px; padding-right: 60px; background-color: #434343; border-radius: 10px; margin-bottom: 50px;">
+    <center>
+      <h1 style="font-family: Comic Sans; color:white ;"> <i> <b> Here are my recent 10 videos 🎞
+          </b></i>
+      </h1>
+
+      <p style="font-family: Courier New; color: rgba(255,255,255,1); font-size: 20px; margin-bottom: 20px;"> Use the
+        button below to not
+        miss
+        any funny programming videos or cool tech videos.</p>
+
+      <script src="https://apis.google.com/js/platform.js"></script>
+
+      <div class="g-ytsubscribe" data-channelid="UCDXQNb3linY9EksWAvJhPyQ" data-layout="full" data-theme="dark"
+        data-count="default"></div>
+
+    </center>
+  </div>
+
+  {% for i,j in list %}
+
+  <div class="row">
+    <div class="col s6 m6">
+      <div data-aos="fade-right" data-aos-duration="2000" data-aos-once="false" class=" video-container"
+        style="padding-top: 7%;">
+        <iframe class="latestVideoEmbed" vnum='{{i}}' cid="UCDXQNb3linY9EksWAvJhPyQ" frameborder="0" allowfullscreen
+          style="border: 5px solid #ffffff; padding: 5px;"></iframe>
+      </div>
+    </div>
+    {% if j != null %}
+    <div class="col s6 m6">
+      <div data-aos="fade-left" data-aos-duration="2000" data-aos-once="false" class=" video-container"
+        style="padding-top: 7%;">
+        <iframe class="latestVideoEmbed" vnum='{{j}}' cid="UCDXQNb3linY9EksWAvJhPyQ" frameborder="0" allowfullscreen
+          style="border: 5px solid #ffffff; padding: 5px;"></iframe>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+  <!-- CARDS  -->
+  <!--
+    <div class="row">
+      <div class="col s6 m6" data-aos="fade-right" data-aos-duration="2000" data-aos-once="false">
+        <div class="card">
+          <div class="card-image video-container">
+            <iframe class="latestVideoEmbed" vnum='{{0}}' cid="UCDXQNb3linY9EksWAvJhPyQ" frameborder="0" allowfullscreen
+              style="border: 5px solid #ffffff; padding: 5px;"></iframe>
+
+          </div>
+
+          <div class="card-content">
+            <span class="card-title" id='myspan'>Card Title</span>
+            <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s6 m6" data-aos="fade-left" data-aos-duration="2000" data-aos-once="false">
+        <div class="card">
+          <div class="card-image video-container">
+            <iframe class="latestVideoEmbed" vnum='{{1}}' cid="UCDXQNb3linY9EksWAvJhPyQ" frameborder="0" allowfullscreen
+              style="border: 5px solid #ffffff; padding: 5px;"></iframe>
+
+          </div>
+
+          <div class="card-content">
+            <span class="card-title" id='myspan'>Card Title</span>
+            <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    -->
+  <!-- CARDS END-->
+
+
+
+
+</div>
+
+<!--
+        <div class="row">
+          <div class="col s12 m7">
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="{% static 'images/bg2.jpg'%}">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+-->
+
+
+<script>
+  var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
+  var reqURL2 = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.youtube.com%2Ffeeds%2Fvideos.xml%3Fchannel_id%3DUCDXQNb3linY9EksWAvJhPyQ&api_key=mll6zmdtx5s3w48ti7g1hdbrpjgzssl23q36c8ml&count=1000";
+  function loadVideo(iframe) {
+    $.getJSON(reqURL2,
+      function (data) {
+        var videoNumber = (iframe.getAttribute('vnum') ? Number(iframe.getAttribute('vnum')) : 0);
+        console.log(videoNumber);
+
+        var link = data.items[videoNumber].link;
+        id = link.substr(link.indexOf("=") + 1);
+        iframe.setAttribute("src", "https://youtube.com/embed/" + id + "?controls=1&autoplay=0");
+
+      }
+    );
+  }
+  /*
+    function loadTitle(span) {
+      $.getJSON(reqURL + iframe.getAttribute('cid'),
+        function (data) {
+          var videoNumber = (iframe.getAttribute('vnum') ? Number(iframe.getAttribute('vnum')) : 0);
+          console.log(videoNumber);
+  
+          var title = data.items[videoNumber].title;
+          span.innerText = title;
+        }
+      );
+  
+    }
+    */
+
+  var iframes = document.getElementsByClassName('latestVideoEmbed');
+  var span = document.getElementsByClassName('card-title');
+  for (var i = 0, len = iframes.length; i < len; i++) {
+    loadVideo(iframes[i]);
+    //loadTitle(span[i]);
+  }
+
+</script>
+</body>
+{% endblock %}
+
+
+<!--    function (span) {
+        var title = data.items[iframe.getAttribute('vnum')].title;
+        var span = document.getElementById('myspan');
+        span.innerText = title;
+      }-->
+
+
+</html>

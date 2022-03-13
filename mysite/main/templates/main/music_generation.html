@@ -1,0 +1,149 @@
+{% extends "main/footer.html" %}
+<head>
+
+	<style>
+		
+		.grid-container{
+
+			display: inline-grid;
+
+ 	 	grid-template-columns: auto auto auto;
+  		
+  		padding: 10px;
+		}
+
+	</style>
+
+</head>
+
+<body>
+	
+	{% block content %}
+<div style="width: 200px; position: fixed; padding: 20px; margin: 20px; font-size: 17px;" class="sidebar">
+		<p><a href="#definition" style="color: #696969;">Definition</a>
+	  	<p><a href="#detect_objects" style="color: #696969;">Generate Images</a>
+	  	<p><a href="#CNN" style="color: #696969;">LSTM</a>
+	 	<p><a href="#various_object_detection_techniques" style="color: #696969;">Music Generation techniques</a>
+	 	<p><a href="#details" style="color: #696969;">Details</a>
+
+	</div> 
+		<u style="color: #FF00F5;"><h1 style="color: black; text-align: center; font-family: Luminari;"> Music Generation </h1></u>
+
+		<br>
+		<br>
+		<div class="container">
+		
+<a name="definition">	
+		<h2 style="color: #A510F5; text-align: center; font-family: Impact;"> Definition </h2>
+</a>
+
+		<br>
+		<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> Those times are gone when you had to wait for your favourite singer to release a new song, now you can compose similar music using <a href="Extras"><i style="color: #A510F5">AI</i></a>. Yes! That's right you can compose your own music using what's called as <a href="#CNN"><i style="color: #A510F5">LSTM</a></i> networks. This is used my many artists to get inspirations for their new work.</p>
+		
+		<br>
+
+<a name="detect_objects">	
+		<h2 style="color: #A510F5;; text-align: center; font-family: Impact;"> Generate Music </h2>
+</a>		
+		<h3 style="color: #696969; text-align: center; font-family: Andale Mono;"> Please give the generator 30 seconds.</h3>
+		
+		<center>
+		<TABLE>
+			<tr align="center">
+			<td>	
+				<center>
+		 	<div style=" 
+		 		 width: 300px;
+		 		 height: 165px;
+		 		 background-image: linear-gradient(to right, #3D9CF9, #FD6E6E);
+		 		 border-radius: 10px;">
+		 	
+		 		 <a href="gen_music" style="text-align: center;"> 
+		 		 	
+		 		 	<p style="padding-top:45px; font-size: 60px; color: white; font-family: Impact; text-align: center;"> GENERATE </p>	
+		 		
+		 		 </a> 
+	 		
+	 		</div> 
+	 		</center>
+			</td>
+		<br>
+			<td>
+				<center>
+			<div style=" 
+		 		 width: 300px;
+		 		 height: 165px;
+		 		 background-image: linear-gradient(to right, #3D9CF9, #FD6E6E);
+		 		 border-radius: 10px;">
+		 	
+		 		 <a href="playAudioFile" style="text-align: center;"> 
+		 		 	
+		 		 	<p style="padding-top:45px; font-size: 60px; color: white; font-family: Impact; text-align: center;"> DOWNLOAD </p>	
+		 		
+		 		 </a> 
+	 		</center>
+	 		</div> 
+	 	</td>
+	 </tr>	
+
+	</TABLE> 		
+	</center>
+	<br><br><br><br>
+
+<a name="CNN">	
+	<h2 style="color: #A510F5; font-family: Impact; text-align: center;"> LSTM Networks </h2>
+</a>
+		<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> LSTM networks are a form of RNN(Recurrent Neural network) which was designed to work with sequence data i.e data that is dependant on previous data. due ti its limitations LSTM's were designed which solves the <a href="Extras"><i style="color: #A510F5">vanishing gradient</i></a> problem. An LSTM layer consists of a set of recurrently connected blocks, known as memory blocks. These blocks can be thought of as a differentiable version of the memory chips in a digital computer. Each one contains one or more recurrently connected memory cells and three multiplicative units the input, output and forget gates that provide continuous analogues of write, read and reset operations for the cells. The net can only interact with the cells via the gates. These gates allow the netowrk to learn which data to keep in the memory and which to forget. for more info - <a href="https://machinelearningmastery.com/gentle-introduction-long-short-term-memory-networks-experts/"><i style="color: #A510F5"> LSTM </i></a>
+		</p>
+
+<a name="various_object_detection_techniques">	
+	<h2 style="color: #A510F5; font-family: Impact; text-align: center;"> Various Music Generation Technniques</h2>
+</a>
+
+		<br>
+		<br>	
+
+		<h4 style="color: #A510F5; text-align: left; font-family: Impact;"> GANS</h4>
+			<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> 
+				GANS stands for Generative Adverserial Networks. These kind of networks consists of two neural networks one for generating music and other to check how good music is generated. Generator comprises of a <a href="Extras"><i style="color: #A510F5"> deconvolution network</i></a> and discriminator uses a classic <a href="Extras"><i style="color: #A510F5"> ANN </i></a>. The goal of the generator is to generate passable music: to lie without being caught. The goal of the discriminator is to identify music coming from the generator as fake.The generator takes in random noise and returns an output. This generated output is fed into the discriminator alongside a stream of output taken from the actual, ground-truth dataset. The discriminator takes in both real and fake output and returns probabilities, a number between 0 and 1, with 1 representing a prediction of authenticity and 0 representing fake. for more info <a href="https://skymind.ai/wiki/generative-adversarial-network-gan"><i style="color: #A510F5"> GANS </i></a>
+			</p>
+		<h4 style="color: #A510F5; text-align: left; font-family: Impact;"> GRU </h4>
+			<p style="color: #696969; font-family: Andale Mono; font-size: 20px;">
+				GRU stands for Gated recurrent unit. GRU can also be considered as a variation on the LSTM because both are designed similarly and, in some cases, produce equally excellent results. To solve the <a href="Extras"><i style="color: #A510F5"> vanishing gradient </a></i> problem of a standard RNN, GRU uses, so-called, update gate and reset gate. Basically, these are two vectors which decide what information should be passed to the output. The special thing about them is that they can be trained to keep information from long ago, without washing it through time or remove information which is irrelevant to the prediction.
+
+			</p>
+
+<a name="details">	
+	<h2 style="color: #A510F5; text-align: left; font-family: Impact; text-align: center;"> Details </h2>	
+</a>		
+		<p style="color: #696969; font-family: Andale Mono; font-size: 20px;">
+			For music generation LSTM netowrks were used. The model was trained on only the Piano Version of Final Fantasy theme songs. Model consists of 3 <a href="Extras"><i style="color: #A510F5"> LSTM </i></a> and 3 <a href="Extras"><i style="color: #A510F5">dropout </i></a> <a href="Extras"><i style="color: #A510F5"> layers </i></a>. <a href="Extras"><i style="color: #A510F5"> rmsProp </i></a>optimiser is used to train the network. The generator only generates 25 seconds of music because after that model was not working properly, it was repeting the notes.
+		</p>
+		<br>
+
+
+	<h2 style="color: #A510F5; text-align: left; font-family: Impact; text-align: center;" name="details"> Code </h2>	
+
+
+	
+	<br><br>
+	<CENTER>
+		
+
+			 <p style = "text-align: center;"> 
+
+			 	{% for tutorial in tutorials %}
+			 		{% if tutorial.tutorial_title == "Generate Music" %}
+			 			{{tutorial.tutorial_content|safe}}
+			 		{% endif%}
+			 	{% endfor %}
+
+			 </p>
+		
+		
+	</CENTER>
+
+
+	{% endblock %}
+
+</body>

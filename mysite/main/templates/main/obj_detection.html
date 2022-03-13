@@ -1,0 +1,133 @@
+{% extends "main/footer.html" %}
+{% with colour="#FF0000" %}   
+
+<head>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/obj_detection.css'%}">
+	<script type="text/javascript" href="{% static 'main/js/obj_detect.js'%}"></script>
+
+</head>
+
+
+	{% block content %}
+<body>
+	
+	<div style="width: 200px; position: fixed; padding: 20px; margin: 20px; font-size: 17px;" class="sidebar">
+		
+		<p><a href="#definition" style="color: #696969;">Definition</a>
+	  	<p><a href="#detect_objects" style="color: #696969;">Detect Objects</a>
+	  	<p><a href="#CNN" style="color: #696969;">CNN</a>
+	 	<p><a href="#various_object_detection_techniques" style="color: #696969;">Object detection techniques</a>
+	 	<p><a href="#details" style="color: #696969;">Details & Code</a>
+
+	 
+	</div>
+
+		<u style="color: #FD6E6E;"><h1 style="color: black; text-align: center; font-family: Luminari;"> Object Detection </h1></u>
+
+		<br>
+		<br>
+		<div class="container">
+		
+		<a name="Definition">	
+		<h2 style="color: #FD6E6E; text-align: center; font-family: Impact;"> Definition </h2>
+		</a>
+
+		<br>
+		<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> Ever wondered!!! how does your car drives on its own? or how does your google lens knows what object you are showing to it? Well Its all Object Detection. It comes under a field of AI (Artificial Intelligence) called <a href="Extras"><i style="color: #FD6E6E"> Computer Vision</i></a>. Object Detection can detect any object (on which it is trained on) in an image. Well-researched domains of object detection include face detection and pedestrian detection. It can even be used to help blind people know about nearby objects, It can also be used for surveillance and much much more... </p>
+		
+		<br>
+		<a name="detect_objects">
+		<h2 style="color: #FD6E6E; text-align: center; font-family: Impact;"> Detect Objects </h2>
+		</a>
+
+		<center>
+		 	<div style=" 
+		 		 width: 600px;
+		 		 height: 330px;
+		 		 background-image: linear-gradient(to right, #3D9CF9, #FD6E6E);
+		 		 border-radius: 10px;">
+		 	
+		 		 <a href="object" style="text-align: center;"> 
+		 		 	
+		 		 	<p style="padding-top:50px; font-size: 150px; color: white; font-family: Impact; text-align: center;"> Run </p>	
+		 		
+		 		 </a> 
+	 		
+	 		</div> 
+		</center>
+
+	<br><br><br><br><br>	
+
+	<a name="CNN">	
+
+		<h2 style="color: #FD6E6E; font-family: Impact; text-align: center;" name="CNN"> 
+			Convolution neural networks	  
+		 </h2>
+
+	</a>
+		<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> 
+			Convolution neural networks enables computers to see the real world. It uses various <a href="Extras"><i style="color: #FD6E6E">layers</i></a> to recognize various patterns available in the image. This is one of the easiest to implement deep learning computer vision algorithm, it takes an input image and performs <a href="Extras"><i style="color: #FD6E6E"> convolution operations </i></a> on it, first it takes an input image of given size and creates multiple <a href="Extras"><i style="color: #FD6E6E">filters/feature detectors</i></a> (which is basically a random generated matrix of given size) for it, aim of a filter is to recognise certain patterns in an image, the filter is moved across the image and a matrix multiplication is done between the filter and the image, then this filter slides throughout the image to gather more features, we then use a <a href="Extras"><i style="color: #FD6E6E">activation function </i></a>mostly a <a href="Extras"><i style="color: #FD6E6E"> rectified linear unit function </i></a>to increase non-linearity or preserve only important features, than we use <a href="Extras"><i style="color: #FD6E6E"> max-pooling </i></a>to add up all the values in a given matrix size ex if we choose a matrix of 4 then it will add all the 4 values to create 1 value, thus reducing the size of our output to make it faster, while preserving all the features of the orignal input. The final step is to flatten the final matrix to pass as input to a basic <a href="Extras"><i style="color: #FD6E6E"> ANN </i></a>(artificial neural network) and get class predictions.
+
+		</p>	
+	<a name="various_object_detection_techniques">	
+
+		
+		<h2 style="color: #FD6E6E; font-family: Impact; text-align: center;" name="CNN"> 
+			Various Object Detection techniques 
+		 </h2>
+
+	</a>	
+		<br>
+		<br>	
+
+		<h4 style="color: #FD6E6E; text-align: left; font-family: Impact;"> YOLO :- 
+			<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> 
+
+				 It stands for you only look once. As the name suggests this algorithm looks at the image only once, compared to classical <a href="#CNN"><i style="color: #FD6E6E">CNN </i> </a> which looks at the image more number of times as pixel increases. Yolo divides the image into an S x S grid and comes up with bounding boxes, which are boxes drawn around images and predicted probabilities for each of these regions. The method used to come up with these probabilities is <a href="Extras"><i style="color: #FD6E6E">logistic regression</i></a>. The bounding boxes are weighted (given more importance) by the associated probabilities. For class prediction, independent <a href="Extras"><i style="color: #FD6E6E"> logistic classifiers </i></a> are used. for more info 
+			 <a href="https://towardsdatascience.com/an-introduction-to-implementing-the-yolo-algorithm-for-multi-object-detection-in-images-99cf240539"><i style="color: #FD6E6E">YOLO</i></a>
+
+			</p>
+		<h4 style="color: #FD6E6E; text-align: left; font-family: Impact;"> SSD :-	
+			<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> 
+				SSD (Single shot multibox detection) is similar to YOLO, as in it also looks at the image only once. It creates many boxes throughout the image and calculates the probality of any class object present in these regions. It then removes those boxes in which probability of object being there is less. More the number of overlaping boxes, more is the probability of any object to be present there
+			</p>
+		<h4 style="color: #FD6E6E; text-align: left; font-family: Impact;"> RCNN :-		
+			<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> Region defined convolution neural networks.
+			The R-CNN detector first generates region proposals using an algorithm such as <a href="https://www.researchgate.net/publication/319770284_Edge_Boxes_Locating_Object_Proposals_from_Edges"><i style="color: #FD6E6E">Edge Boxes</i></a>. The proposal regions are cropped out of the image and resized. Then, the CNN classifies the cropped and resized regions. Finally, the region proposal bounding boxes are refined by a <a href="Extras"><i style="color: #FD6E6E"> support vector machine (SVM) </i></a>that is trained using CNN features.
+		</p>
+
+	<a name="details">		
+		<h2 style="color: #FD6E6E; text-align: left; font-family: Impact; text-align: center;" > 
+		Details 
+		</h2>
+	</a>	
+		
+<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> For Object detection lite version of yolo-v3 was used, it can recognize objects belonging to 80 different classes, it only draws boxes around objects if it is more than 60% sure about it.</p>
+		<br><br><br>
+	
+
+	<h2 style="color: #FD6E6E; text-align: left; font-family: Impact; text-align: center;" name="details"> Code </h2>	
+
+
+
+	<br><br>
+	<CENTER>
+		
+
+			 <p style = "text-align: center;"> 
+
+			 	{% for tutorial in tutorials %}
+			 		{% if tutorial.tutorial_title == "Object Detection" %}
+			 			{{tutorial.tutorial_content|safe}}
+			 		{% endif%}
+			 	{% endfor %}
+
+			 </p>
+		
+		
+	</CENTER>
+	<br><br><br>
+</body>
+{% endblock %}
+{% endwith %}

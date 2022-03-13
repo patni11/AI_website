@@ -1,0 +1,188 @@
+{% extends "main/footer.html" %}
+<head>
+
+	<style>
+		
+		
+		.grid-container{
+
+			display: inline-grid;
+
+ 	 	grid-template-columns: auto auto auto;
+  		
+  		padding: 10px;
+		}
+
+	</style>
+
+</head>
+
+<body>
+	{% include "main/includes/messages.html" %}
+	{% block content %}
+
+		<div style="width: 200px; position: fixed; padding: 20px; margin: 20px; font-size: 17px;" class="sidebar">
+		
+		<p><a href="#definition" style="color: #696969;">Definition</a>
+	  	<p><a href="#detect_faces" style="color: #696969;">Detect Faces</a>
+	  	<p><a href="#CNN" style="color: #696969;">CNN</a>
+	 	<p><a href="#various_object_detection_techniques" style="color: #696969;">Face Recognition Techniques</a>
+	 	<p><a href="#details" style="color: #696969;">Details & Code</a>
+
+	 
+	</div>
+
+		<u style="color: #59AFFE;"><h1 style="color: black; text-align: center; font-family: Luminari;"> Face Recognition </h1></u>
+
+		<br>
+		<br>
+		<div class="container">
+		
+		<a name="Definition">		
+		<h2 style="color: #59AFFE; text-align: center; font-family: Impact;"> Definition </h2>
+		</a>
+		<br>
+		<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> You use face recognition every time you turn on your phone, make a payment online or login to some app without even realising, Your day stars and ends with it. It uses <a href="Extras"><i style="color: #59AFFE"> Computer vision </i></a> algorithms to recognise different faces. It is similar to object detection except that it categorise different faces instead of objects.It is used in varities of places from security to day to day payment system, it is even used by many organizations for employee attendence
+		</p>
+		
+				
+
+		<br>
+		<a name="detect_faces">	
+		<h2 style="color: #59AFFE; text-align: center; font-family: Impact;"> Detect Faces </h2>
+		</a>
+
+		<br>
+		<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> Procedure :-  If you are using it for first time, enter you name and press configure, wait for some time utill the website redirects shows you a green tick. Now press the train button to train it to recognize your face, after the training is done press run to enjoy face recognition</p>
+		<br>
+	<table style="border: none;">
+		<tr>
+			
+	 		<td>
+	 		
+		 		<a href="updating_weights_for_face_recognition" style="text-align: center;"> 	
+
+				<div class="ldBar"></div>
+	
+		 				<center>
+			 		<div style=" 
+			 		 width: 300px;
+			 		 height: 165px;
+			 		 background-image: linear-gradient(to right, #FD6E6E, #3D9CF9);
+			 		 border-radius: 10px;
+			 		 
+			 		"> 
+			 			<p style="padding: 45px; font-size: 60px; color: white; font-family: Impact; text-align: center;"> Train 
+			 			</p>
+
+			 		</div>	
+			 		</center>
+			 	</a>
+			 	
+			 </td>	
+			 <td>
+			 </td>	
+		 	<td>
+		 		
+		 		<a href="run_face" style="text-align: center;"> 
+		 		<center>		
+			 		<div style=" 
+			 		 width: 300px;
+			 		 height: 165px;
+			 		 background-image: linear-gradient(to right,#3D9CF9 , #FD6E6E);
+			 		 border-radius: 10px;
+			 		 
+			 		"> 
+			 		
+			 		<p style="padding: 45px; font-size: 60px; color: white; font-family: Impact; text-align: center;"> Run 
+			 		</p>
+			 	</div>
+			 	 	</center>
+		 		</a> 		
+		
+		 	</td>	
+		</tr>
+
+		<tr>
+			<td><p style="font-size: 25px; color: Black; font-family: Impact; text-align: center;"> Who is this?</p>
+			<td></td>		
+		</tr>	
+
+		<tr>
+			<td>
+				<form method="POST" action="collect">
+					{% csrf_token %}
+					{{ form.as_p }}
+					<input type="text" name="FirstName">
+					<center>
+					<button class="btn waves-effect waves-light" type="submit"><B>Configure</B></button>
+					</center>
+				</form>	
+			</td>
+		
+		</tr>
+
+	</table>
+		<br>
+		<br>
+		<br>
+
+		<a name="CNN">	
+	<h2 style="color: #59AFFE; font-family: Impact; text-align: center;"> Convolution neural networks	   </h2>
+		</a>
+		<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> 	Convolution neural networks enables computers to see the real world. It uses various <a href="Extras"><i style="color: #59AFFE">layers</i></a> to recognize various patterns available in the image. This is one of the easiest to implement deep learning computer vision algorithm, it takes an input image and performs <a href="Extras"><i style="color: #59AFFE"> convolution operations </i></a> on it, first it takes an input image of given size and creates multiple <a href="Extras"><i style="color: #59AFFE">filters/feature detectors</i></a> (which is basically a random generated matrix of given size) for it, aim of a filter is to recognise certain patterns in an image, the filter is moved across the image and a matrix multiplication is done between the filter and the image, then this filter slides throughout the image to gather more features, we then use a <a href="Extras"><i style="color: #59AFFE">activation function </i></a>mostly a <a href="Extras"><i style="color: #59AFFE"> rectified linear unit function </i></a>to increase non-linearity or preserve only important features, than we use <a href="Extras"><i style="color: #59AFFE"> max-pooling </i></a>to add up all the values in a given matrix size ex if we choose a matrix of 4 then it will add all the 4 values to create 1 value, thus reducing the size of our output to make it faster, while preserving all the features of the orignal input. The final step is to flatten the final matrix to pass as input to a basic <a href="Extras"><i style="color: #59AFFE"> ANN </i></a>(artificial neural network) and get class predictions.
+<a name="various_object_detection_techniques">	
+	<h2 style="color: #59AFFE; font-family: Impact; text-align: center;"> Various Face recognition techniques</h2>
+</a>
+		<br>
+		<br>	
+
+		<h4 style="color: #59AFFE; text-align: left; font-family: Impact;"> YOLO :- 
+			<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> 
+
+				 It stands for you only look once. As the name suggests this algorithm looks at the image only once, compared to classical <a href="#CNN"><i style="color: #59AFFE">CNN </i> </a> which looks at the image more number of times as pixel increases. Yolo divides the image into an S x S grid and comes up with bounding boxes, which are boxes drawn around images and predicted probabilities for each of these regions. The method used to come up with these probabilities is <a href="Extras"><i style="color: #59AFFE">logistic regression</i></a>. The bounding boxes are weighted (given more importance) by the associated probabilities. For class prediction, independent <a href="Extras"><i style="color: #59AFFE"> logistic classifiers </i></a> are used. for more info 
+			 <a href="https://towardsdatascience.com/an-introduction-to-implementing-the-yolo-algorithm-for-multi-object-detection-in-images-99cf240539"><i style="color: #59AFFE">YOLO</i></a>
+
+			</p>
+		<h4 style="color: #59AFFE; text-align: left; font-family: Impact;"> SSD :-	
+			<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> 
+				SSD (Single shot multibox detection) is similar to YOLO, as in it also looks at the image only once. It creates many boxes throughout the image and calculates the probality of any class object present in these regions. It then removes those boxes in which probability of object being there is less. More the number of overlaping boxes, more is the probability of any object to be present there
+			</p>
+		<h4 style="color: #59AFFE; text-align: left; font-family: Impact;"> RCNN :-		
+			<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> Region defined convolution neural networks.
+			The R-CNN detector first generates region proposals using an algorithm such as <a href="https://www.researchgate.net/publication/319770284_Edge_Boxes_Locating_Object_Proposals_from_Edges"><i style="color: #59AFFE">Edge Boxes</i></a>. The proposal regions are cropped out of the image and resized. Then, the CNN classifies the cropped and resized regions. Finally, the region proposal bounding boxes are refined by a <a href="Extras"><i style="color: #59AFFE"> support vector machine (SVM) </i></a>that is trained using CNN features.
+		</p>
+
+<a name="Details">	
+	<h2 style="color: #59AFFE; text-align: left; font-family: Impact; text-align: center;"> Details </h2>	
+		</a>
+		<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> 
+			For Face Recognition opencv's haarcascade was used, it consists of pre-trained features for front part of the face. Users can update these weights to fit it for their own face. If the confidence is more than 35% than only it draws rectangle around the face.
+		</p>
+		<br>
+
+<h2 style="color: #59AFFE; text-align: left; font-family: Impact; text-align: center;" name="details"> Code </h2>	
+
+
+	
+	<br><br>
+	<CENTER>
+		
+
+			 <p style = "text-align: center;"> 
+
+			 	{% for tutorial in tutorials %}
+			 		{% if tutorial.tutorial_title == "Face Recognition" %}
+			 			{{tutorial.tutorial_content|safe}}
+			 		{% endif%}
+			 	{% endfor %}
+
+			 </p>
+		
+		
+	</CENTER>
+	<br><br><br>
+
+	{% endblock %}
+
+</body>

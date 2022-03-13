@@ -1,0 +1,143 @@
+{% extends "main/footer.html" %}
+{% with colour="#FF0000" %}   
+
+<head>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'main/css/obj_detection.css'%}">
+	<script type="text/javascript" href="{% static 'main/js/obj_detect.js'%}"></script>
+
+</head>
+
+
+	{% block content %}
+<body>
+	
+	<div style="width: 200px; position: fixed; padding: 20px; margin: 20px; font-size: 17px;" class="sidebar">
+		
+		<p><a href="#definition" style="color: #696969;">Definition</a>
+			<br/>
+	  	<p><a href="#detect_objects" style="color: #696969;">Generate Images</a><br/>
+	  	<p><a href="#CNN" style="color: #696969;">GANS</a><br/>
+	 	<p><a href="#various_object_detection_techniques" style="color: #696969;">Image Generation techniques</a><br/>
+	 	<p><a href="#details" style="color: #696969;">Details</a><br/>
+
+	 
+	</div>
+
+		<u style="color: #31B031;"><h1 style="color: black; text-align: center; font-family: Luminari;"> Image Generation </h1></u>
+
+		<br>
+		<br>
+		<div class="container">
+		
+		<a name="definition">	
+		<h2 style="color: #31B031; text-align: center; font-family: Impact;" name="Definition"> Definition </h2>
+		</a>
+		<br>
+		<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> 
+			Imagine you had to make a animated movie alone! how would you do that?? It sounds impossible right, making a 2 hours movie alone that too animated. But it's possible, if you know how to use GANS 😉. GANS allow you to create anything from music to faces, handbags, arts and even supercars in the form of image. It is used by Hollywood to create movies, artists to get inspiration for their art and musicians for music. 
+		</p>
+		<br>
+
+		<a name="detect_objects">	
+		<h2 style="color: #31B031; text-align: center; font-family: Impact;" name="detect_objects"> Generate Images </h2>
+		</a>
+		<br>
+		<br>
+		<a href="gen_img" style="text-align: center;"> 	
+
+	
+		
+				<center>
+ 		<div style=" 
+ 		 width: 300px;
+ 		 height: 165px;
+ 		 background-image: linear-gradient(to right, #FD6E6E, #3D9CF9);
+ 		 border-radius: 10px;
+ 		 
+ 		"> 
+ 			<p style="padding: 35px; font-size: 60px; color: white; font-family: Impact; text-align: center;"> Generate
+ 			</p>
+
+ 		</div>	
+
+ 	</center>
+ </a>
+
+ 	<a href="download_img" style="text-align: center;"> 	
+
+	
+		
+				<center>
+ 		<div style=" 
+ 		 width: 300px;
+ 		 height: 165px;
+ 		 background-image: linear-gradient(to right, #FD6E6E, #3D9CF9);
+ 		 border-radius: 10px;
+ 		 
+ 		"> 
+ 			<p style="padding: 35px; font-size: 60px; color: white; font-family: Impact; text-align: center;"> View
+ 			</p>
+
+ 		</div>	
+
+ 	</center>
+ </a>
+		<br>
+		<br>
+		<br>
+<a name="CNN">	
+	<h2 style="color: #31B031; font-family: Impact; text-align: center;" name="CNN"> Generative Adverserial Networks </h2>
+</a>
+	<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> 
+				GANS stands for Generative Adverserial Networks. These kind of networks consists of two neural networks one for generating music and other to check how good music is generated. Generator comprises of a <a href="Extras"><i style="color: #31B031"> deconvolution network</i></a> and discriminator uses a classic <a href="Extras"><i style="color: #31B031"> ANN </i></a>. The goal of the generator is to generate passable music: to lie without being caught. The goal of the discriminator is to identify music coming from the generator as fake.The generator takes in random noise and returns an output. This generated output is fed into the discriminator alongside a stream of output taken from the actual, ground-truth dataset. The discriminator takes in both real and fake output and returns probabilities, a number between 0 and 1, with 1 representing a prediction of authenticity and 0 representing fake. for more info <a href="https://skymind.ai/wiki/generative-adversarial-network-gan"><i style="color: #31B031"> GANS </i></a>
+			</p>
+<a name="various_object_detection_techniques">	
+	<h2 style="color: #31B031; font-family: Impact; text-align: center;" name="various_object_detection_techniques"> Various Image Generation Techniques</h2>
+</a>
+		<br>
+		<br>	
+<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> 
+As generative algorithms are relatively new (developed in 2014) there are not many algoritms which have been created. LSTM networks can be used for generation purposes but their main aim is to analyse sequence data
+</p>
+		<h4 style="color: #31B031; text-align: left; font-family: Impact;"> LSTM :- 
+			<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> LSTM networks are a form of RNN(Recurrent Neural network) which was designed to work with sequence data i.e data that is dependant on previous data. due ti its limitations LSTM's were designed which solves the <a href="Extras"><i style="color: #31B031">vanishing gradient</i></a> problem. An LSTM layer consists of a set of recurrently connected blocks, known as memory blocks. These blocks can be thought of as a differentiable version of the memory chips in a digital computer. Each one contains one or more recurrently connected memory cells and three multiplicative units the input, output and forget gates that provide continuous analogues of write, read and reset operations for the cells. The net can only interact with the cells via the gates. These gates allow the netowrk to learn which data to keep in the memory and which to forget. for more info - <a href="https://machinelearningmastery.com/gentle-introduction-long-short-term-memory-networks-experts/"><i style="color: #31B031"> LSTM </i></a>
+		</p>
+			</p>
+	
+<a name="details">	
+	<h2 style="color: #31B031; text-align: left; font-family: Impact; text-align: center;" name="details"> Details </h2>	
+</a>		
+<p style="color: #696969; font-family: Andale Mono; font-size: 20px;"> 
+		For this generative algorithm, <a href="https://github.com/csinva/gan-pretrained-pytorch"><i style="color: #31B031">cifar10</i></a> gan was used, which implements the <a href="https://arxiv.org/abs/1511.06434"><i style="color: #31B031">DCGAN</i></a>.
+		Training was done for 199 epochs with batch size of 64. Pre-trained weights were used to generate images which can be downloaded from <a href="https://github.com/csinva/gan-pretrained-pytorch/tree/master/cifar10_dcgan/weights"><i style="color: #31B031">here</i></a> .It generates 25 images with dimensions 32*32. Therefore it's not clear.
+</p>
+		<br>
+	
+<h2 style="color: #31B031; text-align: left; font-family: Impact; text-align: center;" name="details"> Code </h2>	
+
+
+
+	<br><br>
+	<CENTER>
+		
+
+			 <p style = "text-align: center;"> 
+
+			 	{% for tutorial in tutorials %}
+			 		{% if tutorial.tutorial_title == "Generate Faces" %}
+			 			{{tutorial.tutorial_content|safe}}
+			 		{% endif%}
+			 	{% endfor %}
+
+			 </p>
+		
+		
+	</CENTER>
+
+
+</body>
+
+
+{% endblock %}
+{% endwith %}

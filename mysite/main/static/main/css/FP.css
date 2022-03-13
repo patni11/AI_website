@@ -1,0 +1,47 @@
+:root{
+	--color1:#0009;
+	--color2:#161616;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+.nav{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 8vh;
+	font-family: 'Poppins', sans-serif;
+	background:var(--color1);
+	overflow: hidden;
+  	position: fixed; /* Set the navbar to fixed position */
+  	top: 0; /* Position the navbar at the top of the page */
+  	width: 100%; /* Full width */
+}
+.logo{
+	color: #ffffff;
+	letter-spacing: 2px;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.nav-items{
+	display: flex;
+	justify-content: space-around;
+	width: 60%;
+	color: #161616;
+	}
+.nav-items a{
+	color: #ffffff;
+	letter-spacing: 2px;
+	font-size: 15px;
+	text-decoration: none;
+	font-weight: bold;
+}
+li{
+	list-style: none;
+}
